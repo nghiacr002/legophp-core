@@ -1,0 +1,9 @@
+{
+    "require": {
+        "twig/twig": "~1.0",
+        "vlucas/valitron": "^1.2",
+        "altorouter/altorouter": "^1.2",
+        "phpunit/phpunit": "5.5.*",
+        "phpmailer/phpmailer": "^5.2"
+    }
+}
