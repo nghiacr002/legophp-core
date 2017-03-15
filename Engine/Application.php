@@ -101,7 +101,7 @@ class Application {
 		$this->router = new \APP\Engine\Router ();
 		$this->mailer = new \APP\Engine\Mailer();
 		$iIndexSeg = 0;
-		if (! empty ( $this->_aConfigs ['system'] ['base_path'] )) {
+		if (! empty ( $this->_aConfigs ['system'] ['base_path'] ) &&  $this->_aConfigs ['system'] ['base_path'] !='/') {
 			$iIndexSeg = 1;
 		}
 		if ($this->request->seg ( $iIndexSeg ) == $this->getConfig ( 'system', 'admin_path' )) {
