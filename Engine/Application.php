@@ -203,11 +203,12 @@ class Application {
 		$this->init ();
 		$sBasePath = $this->_aConfigs ['system'] ['base_path'];
 		if ($this->isAdminPanel ()) {
-			if ($sBasePath == "") {
+			if ($sBasePath == "" || $sBasePath == "/") {
 				$sBasePath = "/";
 			}
 			$sBasePath = $sBasePath . $this->_aConfigs ['system'] ['admin_path'] . "/";
 		}
+
 		if (! empty ( $sBasePath )) {
 			$this->router->instance ()->setBasePath ( $sBasePath );
 		}
@@ -267,7 +268,7 @@ class Application {
 							system_display_result ( array (
 									'module' => $sModule,
 									'controller' => $sController,
-									'action' => $sActionName
+									'action' => $sAction
 							) );
 						}
 						$this->module->set ( $sModule, $sController, $sAction );
