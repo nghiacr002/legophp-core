@@ -38,6 +38,7 @@ class AdminMenuController extends Controller
             ),
         );
         $this->template()->setBreadCrumb($aBreadCrumb);
+		$this->view->aCustomMenuItems = $aCustomMenuItems = $this->helper->callback('getCustomMenuItems',array('group_item' => true));
     }
 
     public function EditAction()
@@ -78,13 +79,17 @@ class AdminMenuController extends Controller
         {
             unset($aDataRow['router']);
         }
+        if (isset($aDataRow['menu_id']) && empty($aDataRow['menu_id']))
+        {
+        	unset($aDataRow['menu_id']);
+        }
         $oNewMenu = $oMenuModel->getTable()->createRow($aDataRow);
         if ($oNewMenu->isValid())
         {
             $oNewMenu->ordering = APP_TIME;
-            if ($iUserId = $oNewMenu->save())
+            if ($iMenuId = $oNewMenu->save())
             {
-                $oNewMenu->menu_id = $iUserId;
+                $oNewMenu->menu_id = $iMenuId;
                 system_display_result(array(
                     'menu' => $oNewMenu->getProps(),
                 ));
