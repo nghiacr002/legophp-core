@@ -31,5 +31,24 @@ class Page extends DbRow
         }
         return $this->app()->language->translate($sText);
     }
+	public function delete()
+	{
+		$mResult = parent::delete();
+		//clean
+		$oQuery = new Query();
+		$oQuery->setCommand("Delete");
+		$oQuery->from(\APP\Engine\Database\DbTable::getFullTableName('layout_widgets'));
+		$oQuery->where('item_type','page');
+		$oQuery->where('item_id',$this->page_id);
+		$oQuery->execute();
 
+		$oQuery = new Query();
+		$oQuery->setCommand("Delete");
+		$oQuery->from(\APP\Engine\Database\DbTable::getFullTableName('meta_tags'));
+		$oQuery->where('item_type','page');
+		$oQuery->where('item_id',$this->page_id);
+		$oQuery->execute();
+
+		return $mResult;
+	}
 }
