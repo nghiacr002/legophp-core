@@ -5,6 +5,7 @@ namespace APP\Application\Module\Page\Model\DbTable\DbRow;
 use APP\Engine\Database\DbRow;
 use APP\Application\Module\Page\Model\Page as PageModel;
 use App\Engine\Url;
+use APP\Engine\Database\Query;
 
 class Page extends DbRow
 {
