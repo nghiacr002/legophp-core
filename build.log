@@ -10,3 +10,4 @@ Copy index.php
 Copy install.php
 Copy unit-test.php
 Export DB for module core
+Export DB for module page

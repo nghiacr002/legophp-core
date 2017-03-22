@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS `#_#####_#category` (
   `category_type` varchar(20) NOT NULL DEFAULT 'system',
   `params` text,
   PRIMARY KEY (`category_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 ---------------------------------------
 
 ---------------------------------------
@@ -425,7 +425,7 @@ CREATE TABLE IF NOT EXISTS `#_#####_#layout_widgets` (
   `ordering` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`pw_id`),
   KEY `item_id` (`item_id`,`item_type`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8;
 ---------------------------------------
 
 ---------------------------------------
@@ -453,7 +453,7 @@ CREATE TABLE IF NOT EXISTS `#_#####_#meta_tags` (
   `item_type` varchar(55) NOT NULL,
   `item_id` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`meta_tag_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=208 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=235 DEFAULT CHARSET=utf8;
 ---------------------------------------
 
 ---------------------------------------
@@ -467,7 +467,7 @@ CREATE TABLE IF NOT EXISTS `#_#####_#menu` (
   `url` varchar(255) NOT NULL,
   `params` int(11) DEFAULT NULL,
   PRIMARY KEY (`menu_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 ---------------------------------------
 
 ---------------------------------------
@@ -504,7 +504,7 @@ CREATE TABLE IF NOT EXISTS `#_#####_#module_controller` (
   `custom_js` text,
   `custom_css` text,
   PRIMARY KEY (`controller_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ---------------------------------------
 
 ---------------------------------------
@@ -559,7 +559,7 @@ CREATE TABLE IF NOT EXISTS `#_#####_#page` (
   `hide_footer_layout` int(1) NOT NULL DEFAULT '0',
   `is_landing_page` int(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`page_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 ---------------------------------------
 
 ---------------------------------------
@@ -573,7 +573,7 @@ CREATE TABLE IF NOT EXISTS `#_#####_#permission` (
   `is_default` int(3) DEFAULT '0',
   `params` text,
   PRIMARY KEY (`permission_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=132 DEFAULT CHARSET=utf8;
 ---------------------------------------
 
 ---------------------------------------
@@ -643,7 +643,7 @@ CREATE TABLE IF NOT EXISTS `#_#####_#setting` (
   `description` text,
   `updated_time` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`setting_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=42 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=46 DEFAULT CHARSET=utf8;
 ---------------------------------------
 
 ---------------------------------------
@@ -676,7 +676,11 @@ INSERT INTO `#_#####_#setting` VALUES("1","core","current_language","textbox","e
         <span style=\"margin-bottom:15px; display:inline-block; font-weight:bold; font-style:italic;\">FWS</span>","Kind Regards","mail.signature_footer","mail.signature_footer_description","0"),
 ("34","core","enable_recaptcha","boolean","0","1","core.enable_recaptcha","core.enable_recaptcha_description","0"),
 ("35","core","recaptcha_public_key","textbox","","","core.recaptcha_public_key","core.recaptcha_public_key_description","0"),
-("36","core","recaptcha_private_key","textbox","","","core.recaptcha_private_key","core.recaptcha_private_key_description","0");
+("36","core","recaptcha_private_key","textbox","","","core.recaptcha_private_key","core.recaptcha_private_key_description","0"),
+("42","sitemap","sitemap_caching_time","textbox","1","1","core.sitemap_caching_time_title","core.sitemap_caching_time_description","0"),
+("43","sitemap","number_of_url_per_file","textbox","1000","","core.number_of_url_per_file_title","core.number_of_url_per_file_description","0"),
+("44","core","ttl_cache","textbox","1000","","core.ttl_cache_title","core.ttl_cache_description","0"),
+("45","core","cache_html_output","boolean","0","1","core.cache_html_output_title","core.cache_html_output_description","0");
 ---------------------------------------
 
 ---------------------------------------
@@ -707,7 +711,7 @@ CREATE TABLE IF NOT EXISTS `#_#####_#theme` (
 ---------------------------------------
 
 ---------------------------------------
-INSERT INTO `#_#####_#theme` VALUES("1","Default","Default Theme SimpleApp","1.0","System","1","1","","","frontend");
+INSERT INTO `#_#####_#theme` VALUES("1","Default","Default Theme SimpleApp","1.0","System","1","1","","Image/Logo/favicon-96x96.png","frontend");
 ---------------------------------------
 
 ---------------------------------------
@@ -776,11 +780,12 @@ CREATE TABLE IF NOT EXISTS `#_#####_#widgets` (
   `can_remove` int(3) NOT NULL DEFAULT '1',
   `params_template` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`widget_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 ---------------------------------------
 
 ---------------------------------------
 INSERT INTO `#_#####_#widgets` VALUES("3","page.widget_html","page/html","page","{\"title\":{\"type\":\"text\",\"value\":\"\",\"title\":\"core.title\"},\"html_content\":{\"type\":\"editor\",\"value\":\"\",\"title\":\"core.content\"}}","0",""),
 ("4","page.page_content","page/content","page","","0",""),
-("5","core.slider","core/slider","core","{\"title\":{\"type\":\"text\",\"value\":\"\",\"title\":\"core.title\"},\"images\":{\"type\":\"slider\",\"value\":\"\",\"title\":\"core.slider\"}}","0","slider");
+("5","core.slider","core/slider","core","{\"title\":{\"type\":\"text\",\"value\":\"\",\"title\":\"core.title\"},\"images\":{\"type\":\"slider\",\"value\":\"\",\"title\":\"core.slider\"}}","0","slider"),
+("6","Search Filter","core/searchFilter","core","{\"title\":{\"type\":\"text\",\"value\":\"\",\"title\":\"core.title\"}}","1","");
 ---------------------------------------

@@ -245,5 +245,4 @@ class PDO implements \APP\Library\Database\Adapter
 		}
 		return $arr;
 	}
-
 }
