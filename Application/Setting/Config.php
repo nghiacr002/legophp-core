@@ -2,9 +2,9 @@
 
 $_CONF['db'] = array(
     'host' => 'localhost',
-    'name' => '',
-    'user' => '',
-    'pwd' => '',
+    'name' => 'simplecms',
+    'user' => 'root',
+    'pwd' => '123456',
     'port' => 3306,
     'prefix' => 'tbl_',
     'adapter' => 'mysqli',
@@ -12,13 +12,13 @@ $_CONF['db'] = array(
 	'type' => 'mysql',
 );
 $_CONF['api_versions'] = array(
-    'default'
+    'default', '1.1',
 );
 $_CONF['system'] = array(
     'data_response' => 'JSON',
-    'format_time' => 'l jS \of F Y h:i:s A',
-    'base_path' => '/',
-    'session_prefix' => 'legophp_',
+    'format_time' => 'l, d/m/Y h:i:s A',
+    'base_path' => '/simplecms/',
+    'session_prefix' => 'simplecms_',
     'admin_path' => 'admincp',
     'language' => 'en',
 );
@@ -27,13 +27,13 @@ $_CONF['apps'] = array(
 	'name' => 'LEGO-BEAN'
 );
 $_CONF['cookie'] = array(
-    'prefix' => 'legophp_',
+    'prefix' => 'simplecms_',
     'expried' => 30,
     'path' => '/',
     'domain' => '',
 );
 $_CONF['cache'] = array(
-    'storage' => 'file',//redis
+    'storage' => 'file',//file or redis
     'path' => APP_CACHE_PATH,
 );
 $_CONF['redis'] = array(
@@ -41,7 +41,7 @@ $_CONF['redis'] = array(
 	'port' => 6379,
 	'schema' => 'tcp'
 );
-$_CONF['enviroment'] = 'development';//production
+$_CONF['enviroment'] = 'development';
 $_CONF['security'] = array(
     'random' => 'abqwertyuioplkjhgfdsaxcvbnm876543210'
 );
@@ -51,14 +51,15 @@ $_CONF['template'] = array(
     'prefix' => ".tpl",
 );
 $_CONF['minify'] = array(
-    'css' => false,
-    'js' => false,
+    'css' => true,
+    'js' => true,
     'file_size' => 256, //kb
 );
-/*$_CONF['gzip'] = array(
+/*
+$_CONF['gzip'] = array(
     'css' => false,
     'js' => false,
-    'template' => false,
+    'template' => true,
 	'level' => 3
 );*/
 ?>
