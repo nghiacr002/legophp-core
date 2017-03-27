@@ -54,4 +54,4 @@ MAINTENANCE = {
 };
 $(document).ready(function () {
     MAINTENANCE.init();
-})
+});
